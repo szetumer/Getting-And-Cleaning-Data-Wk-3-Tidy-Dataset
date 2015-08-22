@@ -56,7 +56,9 @@ THIS CREATES A DATAFRAME OF ALL THE VARIABLES.
 If a dataframe of only the mean and standard deviation of measured values is desired, as opposed to all variables, then simply take the txt output file and run this script:
 
 mean_sd_indicies <- c(1:2,3:8, 43:48, 123:128)
+
 smalldf <- largedf[,mean_sd_indicies]
+
 write.table(smalldf, "Mean_SD_Measured.txt", row.names = FALSE)
 
 ===================================================================================================
