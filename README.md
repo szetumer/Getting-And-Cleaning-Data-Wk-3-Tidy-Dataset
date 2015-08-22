@@ -35,7 +35,7 @@ Original Data Description (Files used in dataset creation):
 
 Script description:
 
-The script has essentially 9 parts:
+The script has essentially 6 parts:
 
 1) download the aformentioned files.
 
@@ -45,7 +45,7 @@ The script has essentially 9 parts:
 
 4) With each row in the dataframe, attach the subject name (given by the "subjects" list), and the activity name (given by the "activities" list) corresponding to that batch of variables.
 
-Now, here the instructions are ambiguous. It says to "extracts only the measurements on the mean and standard deviation for each measurement," and then "from the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject." It is unclear whether the user wants a) a data set of every variable, activity, and subject, averaged over the instances of activity and subject-number pairs, or b) an average of only the variables that are the mean standard deviation of the direct measurements, averaged over the instances of activity and subject-number pairs. So both datasets have been provided. Steps 5 through 6 are to create a dataset that contains all variables, averaged over all instances of each subject,activity pair. Steps 7 through 9 create a dataset of only the variables that are means or standard deviations of measured quantities, averaged over all instances of each subject,activity pair.
+Now, here the instructions are ambiguous. The assignment's instructions say to "extracts only the measurements on the mean and standard deviation for each measurement," and then "from the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject." It is unclear whether the user wants a) a data set of every variable, activity, and subject, averaged over the instances of activity and subject-number pairs, or b) an average of only the variables that are the mean standard deviation of the direct measurements, averaged over the instances of activity and subject-number pairs. So the larger dataset, which contains the smaller one, has been provided.
 
 5) Take the dataframe and melt it with the id variables as "subjects" and "activities", and the measurement variables as the 561 variables.
 
@@ -53,13 +53,11 @@ Now, here the instructions are ambiguous. It says to "extracts only the measurem
 
 THIS CREATES A DATAFRAME OF ALL THE VARIABLES.
 
-7) pair down the unmelted dataframe's columns to include only those that are entries for variables that are means or standard deviations (these are variables 1,2,3,4,5,6,41,42,43,44,45,46,121,122,123,124,125,126,126).
+If a dataframe of only the mean and standard deviation of measured values is desired, as opposed to all variables, then simply take the txt output file and run this script:
 
-8) melt the dataframe as you did in step 5, but this time with fewer measurement variables.
-
-9) recast the dataframe as you did in step 6, but this time with fewer columns created.
-
-THIS CREATES A DATAFRAME OF ONLY THE VARIABLES THAT ARE MEANS OR STANDARD DEVIATIONS OF DIRECT MEASUREMENTS.
+mean_sd_indicies <- c(1:2,3:8, 43:48, 123:128)
+smalldf <- largedf[,mean_sd_indicies]
+write.table(smalldf, "Mean_SD_Measured.txt", row.names = FALSE)
 
 ===================================================================================================
 
