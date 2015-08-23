@@ -41,25 +41,29 @@ The script has essentially 6 parts:
 
 2) combine the X_test and X_train, y_test and y_train, and subject_test and subject_train datasets into one X, y, and subject datasets. The X set (called "data") is the list of batches of 561 variables that correspond to each instance of an activity and subject in both the test and train groups. The y set (called "activities") is the list of activities that correspond to the activity number after combining y_test with y_train.
 
-3) create a dataframe with each row corresponding to a batch of the 561 variables in the "data" variable. The columns of this dataframe were named according to the variable names, given by the features.txt file.
+3) create a dataframe with each row corresponding to a batch of the 561 variables in the "data" variable. The columns of this dataframe are named according to the variable names, given by the features.txt file.
 
 4) With each row in the dataframe, attach the subject name (given by the "subjects" list), and the activity name (given by the "activities" list) corresponding to that batch of variables.
 
 Now, here the instructions are ambiguous. The assignment's instructions say to "extracts only the measurements on the mean and standard deviation for each measurement," and then "from the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject." It is unclear whether the user wants a) a data set of every variable, activity, and subject, averaged over the instances of activity and subject-number pairs, or b) an average of only the variables that are the mean standard deviation of the direct measurements, averaged over the instances of activity and subject-number pairs. So the larger dataset, which contains the smaller one, has been provided.
 
-5) Take the dataframe and melt it with the id variables as "subjects" and "activities", and the measurement variables as the 561 variables.
+5) Next, the program takes the dataframe and melt it with the id variables as "subjects" and "activities", and the measurement variables as the 561 variables.
 
-6) recast the dataframe, averaging over both id variables. This produces a dataframe where each variable in each instance of one subject/activity pair is averaged with every other instance of that variable. The resultant dataframe has 563 columns, one for each id variable (subject and activity) and one for each variable.
+6) recast the dataframe, averaging over both id variables. This produces a dataframe where each variable in each instance of one subject/activity pair is averaged with every other instance of that variable for that subject/activity pair. The resultant dataframe has 563 columns, one for each id variable (subject and activity) and one for each variable.
 
 THIS CREATES A DATAFRAME OF ALL THE VARIABLES.
 
 If a dataframe of only the mean and standard deviation of measured values is desired, as opposed to all variables, then simply take the txt output file and run this script:
 
+originaldf <- read.table("All_Vars_Dataset.txt", sep = " ", header = TRUE)
+
 mean_sd_indicies <- c(1:2,3:8, 43:48, 123:128)
 
-smalldf <- largedf[,mean_sd_indicies]
+smalldf <- originaldf[,mean_sd_indicies]
 
 write.table(smalldf, "Mean_SD_Measured.txt", row.names = FALSE)
+
+This will give you a txt file that consists only of the mean and the std of measured variables.
 
 ===================================================================================================
 
