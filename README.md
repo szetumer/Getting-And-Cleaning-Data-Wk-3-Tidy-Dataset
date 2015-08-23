@@ -65,5 +65,7 @@ write.table(smalldf, "Mean_SD_Measured.txt", row.names = FALSE)
 
 This will give you a txt file that consists only of the mean and the std of measured variables.
 
+You can also find this short script in "Run_analysis_Small.R" in this github repository.
+
 ===================================================================================================
 
