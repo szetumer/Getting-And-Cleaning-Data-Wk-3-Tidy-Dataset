@@ -1,6 +1,11 @@
 This Code book explains all the activities and variables in the code book.
 =================
-
+Each entry in the dataset corresponds to the AVERAGE of all entries for that VARIABLE that have the same SUBJECT ID and ACTIVITY. So, for example, in the original dataset, let's say we had three entries for "tBodyAcc-mean()-X" associated with Subject 1, doing activity 3 ("WALKING_DOWNSTAIRS"). These three entries would be averaged to provide one value for the tBodyAcc-mean()-X, while Subject 1 was doing activity 3. The rest of the code book explains the Subjects, Activites, and Variables.
+=================
+SUBJECTS:
+Subjects were healthy volunteers for the orgiginal study (see the README.md file), and were numbered.
+=================
+ACTIVITIES:
 The activities each subject could perform are labelled the following:
 
 1 WALKING
@@ -10,6 +15,8 @@ The activities each subject could perform are labelled the following:
 5 STANDING
 6 LAYING
 
+=================
+VARIABLES:
 The variables (column labels) selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. The accelerometer’s units are in g’s, and the gyroscopes units are in rad/sec. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. The acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ). The Jerk for both the body and gyro variables were obtained by taking the derivative through time of the acceleration. Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
 
 Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
@@ -42,7 +49,7 @@ fBodyGyroJerkMag
 
 For each of these vectors or vector components, the following were calculated, when applicable:
 
-mean(): Mean value taken either over 
+mean(): Mean value taken either over
 std(): Standard deviation
 mad(): Median absolute deviation. This is the median deviation from the median.
 max(): Largest value in array
