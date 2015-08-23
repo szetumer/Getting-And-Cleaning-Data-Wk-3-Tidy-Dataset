@@ -55,6 +55,8 @@ THIS CREATES A DATAFRAME OF ALL THE VARIABLES.
 
 If a dataframe of only the mean and standard deviation of measured values is desired, as opposed to all variables, then simply take the txt output file and run this script:
 
+largedf <- read.table("All_Vars_Dataset.txt", sep = " ", header = TRUE)
+
 mean_sd_indicies <- c(1:2,3:8, 43:48, 123:128)
 
 smalldf <- largedf[,mean_sd_indicies]
