@@ -41,7 +41,7 @@ The script has essentially 6 parts:
 
 2) combine the X_test and X_train, y_test and y_train, and subject_test and subject_train datasets into one X, y, and subject datasets. The X set (called "data") is the list of batches of 561 variables that correspond to each instance of an activity and subject in both the test and train groups. The y set (called "activities") is the list of activities that correspond to the activity number after combining y_test with y_train.
 
-3) create a dataframe with each row corresponding to a batch of the 561 variables in the "data" variable. The columns of this dataframe were named according to the variable names, given by the features.txt file.
+3) create a dataframe with each row corresponding to a batch of the 561 variables in the "data" variable. The columns of this dataframe are named according to the variable names, given by the features.txt file.
 
 4) With each row in the dataframe, attach the subject name (given by the "subjects" list), and the activity name (given by the "activities" list) corresponding to that batch of variables.
 
